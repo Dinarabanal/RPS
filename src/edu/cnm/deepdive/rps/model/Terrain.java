@@ -8,9 +8,14 @@ public class Terrain {
   private RPSBreed[][] grid;
   private Random rng;
   private Neighborhood neighborhood;
+  private long iterations;
+
+
+
   public Terrain(int size, Random rng, Neighborhood neighborhood) {
     grid = new RPSBreed[size][size];
     this.rng = rng;
+    this.neighborhood = neighborhood;
   }
 
   public void reset(){
@@ -27,6 +32,7 @@ public class Terrain {
 //        rowContents[col] = RPSBreed.values()[rng.nextInt (RPSBreed.values().length)];
 //      }
 //    }
+    iterations = 0;
   }
   public void step() {
     Location attackerLocation = new Location(rng.nextInt(grid.length),
@@ -42,7 +48,9 @@ public class Terrain {
     } else if (result > 0) {
       grid[defenderLocation.getRow()][defenderLocation.getColumn()] = attacker;
     }
+    iterations++;
   }
+
   public void step(int numSteps) {
     for (int i = 0; i < numSteps; i++){
 
@@ -65,4 +73,7 @@ public class Terrain {
 
   }
 
+  public long getIterations() {
+    return iterations;
+  }
 }
