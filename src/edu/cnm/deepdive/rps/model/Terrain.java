@@ -14,12 +14,19 @@ public class Terrain {
   }
 
   public void reset(){
-    for (int row = 0; row<grid.length; row++){
-      RPSBreed[] rowContents = grid[row];
-      for (int col = 0; col < rowContents.length; col++) {
-        rowContents[col] = RPSBreed.values()[rng.nextInt (RPSBreed.values().length)];
+    for (RPSBreed[] row : grid) {
+      for (int col = 0; col < row.length; col++) {
+        row[col] = RPSBreed.values()[rng.nextInt(RPSBreed.values().length)];
       }
     }
+
+
+//    for (int row = 0; row<grid.length; row++){
+//      RPSBreed[] rowContents = grid[row];
+//      for (int col = 0; col < rowContents.length; col++) {
+//        rowContents[col] = RPSBreed.values()[rng.nextInt (RPSBreed.values().length)];
+//      }
+//    }
   }
   public void step() {
     Location attackerLocation = new Location(rng.nextInt(grid.length),
