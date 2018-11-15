@@ -17,7 +17,7 @@ public enum RPSBreed {
       {-1, 1,  0}  //SISSORS
   };
 
-  private static final Comparator<RPSBreed> REFEREE = new Comparator<RPSBreed>() {
+  public static final Comparator<RPSBreed> REFEREE = new Comparator<RPSBreed>() {
     @Override
     public int compare(RPSBreed rps1, RPSBreed rps2) {
       return DOMINANCE[rps1.ordinal()][rps2.ordinal()];
