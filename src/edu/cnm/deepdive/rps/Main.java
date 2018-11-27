@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.rps;
 
 import edu.cnm.deepdive.rps.controller.Controller;
-import java.lang.module.ResolutionException;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

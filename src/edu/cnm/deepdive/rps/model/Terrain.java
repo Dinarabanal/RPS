@@ -38,8 +38,8 @@ public class Terrain {
     Location attackerLocation = new Location(rng.nextInt(grid.length),
         rng.nextInt(grid.length));
     RPSBreed attacker = grid[attackerLocation.getRow()][attackerLocation.getColumn()];
-    Location offsest = neighborhood.randomNeighbor(rng);
-    Location defenderLocation = normalize(attackerLocation, offsest);
+    Location offset = neighborhood.randomNeighbor(rng);
+    Location defenderLocation = normalize(attackerLocation, offset);
     RPSBreed defender = grid[defenderLocation.getRow()][defenderLocation.getColumn()];
     int result = RPSBreed.REFEREE.compare(attacker, defender);
     if (result < 0) {
@@ -53,7 +53,7 @@ public class Terrain {
 
   public void step(int numSteps) {
     for (int i = 0; i < numSteps; i++){
-
+      step();
     }
   }
   /**
